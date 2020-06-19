@@ -1,7 +1,13 @@
-import React from 'react';
+import React from "react";
+import Chart from "./Chart";
 
 const Dashboard = () => {
-    return ( <h1>Dashboard</h1> );
-}
- 
+  const [chartConfigData]=React.useState()
+  return (
+    <div className="chart">
+      <Chart chartConfigData={chartConfigData}/>
+    </div>
+  );
+};
+
 export default Dashboard;
