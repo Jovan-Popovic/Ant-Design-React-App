@@ -19,7 +19,15 @@ const RickMorty = () => {
   };
 
   const ShowTable = () =>
-    isClicked ? tableProp ? <DataTable data={tableProp} /> : "" : "";
+    isClicked ? (
+      tableProp ? (
+        <DataTable data={tableProp} />
+      ) : (
+        () => openNotificationWithIcon("warning")
+      )
+    ) : (
+      ""
+    );
 
   return (
     <React.Fragment>
