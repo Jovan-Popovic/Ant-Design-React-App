@@ -53,7 +53,9 @@ class App extends React.Component {
                   <Link to="/">Home</Link>
                 </Menu.Item>
                 <Menu.Item key="2" icon={<UserOutlined />}>
-                  <Link to="/login">Login</Link>
+                  <Link to="/login">
+                    {this.state.isAuth ? "Logout" : "Login"}
+                  </Link>
                 </Menu.Item>
                 <Menu.Item key="3" icon={<PieChartOutlined />}>
                   <Link to="/dashboard">Dashboard</Link>
@@ -83,12 +85,17 @@ class App extends React.Component {
                       path="/login"
                       render={() =>
                         this.state.isAuth ? (
-                          <Button
-                            type="secondary"
-                            onClick={() => this.toggleAuthStatus(false)}
-                          >
-                            Logout
-                          </Button>
+                          <React.Fragment>
+                            <p>
+                              Press this button to{" "}
+                              <Button
+                                type="secondary"
+                                onClick={() => this.toggleAuthStatus(false)}
+                              >
+                                Logout
+                              </Button>
+                            </p>
+                          </React.Fragment>
                         ) : (
                           <Login
                             toggleAuthStatus={this.toggleAuthStatus}
