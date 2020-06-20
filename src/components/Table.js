@@ -34,18 +34,18 @@ class DataTable extends React.Component {
         case "/character":
           this.setState({
             columns: [
+              { title: "Image", dataIndex: "image", key: "image" },
               { title: "Name", dataIndex: "name", key: "name" },
               { title: "Status", dataIndex: "status", key: "status" },
               { title: "Species", dataIndex: "species", key: "species" },
-              { title: "Image", dataIndex: "image", key: "image" },
             ],
             data: results.map((character, index) => {
               return {
                 key: index,
+                image: <img className="avatar" src={character.image} alt="" />,
                 name: character.name,
                 status: character.status,
                 species: character.species,
-                image: character.image,
               };
             }),
           });
@@ -66,8 +66,10 @@ class DataTable extends React.Component {
               };
             }),
           });
+          break;
+        default:
+          alert("dfsfsd");
       }
-      console.log(data, this.state);
     });
   };
 

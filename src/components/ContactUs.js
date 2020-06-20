@@ -37,16 +37,7 @@ const ContactUs = () => {
   const handleSubmit = (event) => {
     contacts.post("", userData).then((res) => {
       console.log(res);
-      setURL(
-        res.headers.location
-      ); /* 
-    axios({
-      method: "post",
-      url: "https://jsonblob.com/api/jsonBlob",
-      data: userData,
-    }) .then((res) => {
-      console.log(res);
-      setURL(res.headers.location);*/
+      setURL(res.headers.location);
     });
   };
 
@@ -66,7 +57,7 @@ const ContactUs = () => {
           },
         ]}
       >
-        <Input name="name" onChange={handleInput} required />
+        <Input name="name" onChange={handleInput} />
       </Form.Item>
       <Form.Item
         name={["user", "email"]}
@@ -74,33 +65,26 @@ const ContactUs = () => {
         rules={[
           {
             type: "email",
+            required: true,
           },
         ]}
       >
-        <Input name="email" onChange={handleInput} required />
+        <Input name="email" onChange={handleInput} />
       </Form.Item>
-      {/* <Form.Item
-        name={["user", "age"]}
-        label="Age"
+      <Form.Item
+        name={["user", "message"]}
+        label="Message"
         rules={[
           {
-            type: "number",
-            min: 0,
-            max: 99,
+            required: true,
           },
         ]}
       >
-        <InputNumber />
-      </Form.Item> */}
-      {/* <Form.Item name={["user", "website"]} label="Website">
-        <Input />
-      </Form.Item> */}
-      <Form.Item name={["user", "message"]} label="Message">
-        <Input.TextArea name="message" onChange={handleInput} required />
+        <Input.TextArea name="message" onChange={handleInput} />
       </Form.Item>
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
         <Button type="primary" htmlType="submit">
-          Submit
+          Post Message
         </Button>
       </Form.Item>
       {userURL === "" ? (

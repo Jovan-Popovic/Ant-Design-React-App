@@ -5,18 +5,7 @@ import { covid } from "../api/apiCalls";
 class Chart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      /* 
-      countries: [],
-      cases: [], 
-      chartData: {
-        labels:[],
-        datasets:[{
-          label: "Covid19 Cases",
-          data:[]
-        }]
-      },*/
-    };
+    this.state = {};
   }
 
   componentDidMount = () => {
@@ -50,7 +39,6 @@ class Chart extends React.Component {
           ],
         },
       });
-      console.log(this.state.chartData);
     });
   };
 
@@ -71,13 +59,3 @@ class Chart extends React.Component {
 }
 
 export default Chart;
-
-/* <div>
-        {this.state.countries.map((country, index) => (
-          <p key={index}>{country}</p>
-        ))}
-        {this.state.cases.map((country, index) => (
-          <p key={index}>{country}</p>
-        ))}
-        {console.log(this.state)}
-      </div> */
